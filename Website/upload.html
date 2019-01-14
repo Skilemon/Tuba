@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tuba API</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="layui/css/layui.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js"></script>
+    <script src="layui/layui.js"></script>
+    <script src="js/jquery-3.3.1.js"></script>
+    <script src="js/popper.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <ul class="layui-nav" lay-filter="">
+        <li class="layui-nav-item">
+            <a href="javascript:;">首页</a>
+            <dl class="layui-nav-child">
+                <dd><a href="./index.html#daily">每日推荐</a></dd>
+                <dd><a href="./index.html#history">历史优图</a></dd>
+            </dl>
+        </li>
+        <li class="layui-nav-item layui-this"><a href="">上传</a></li>
+        <li class="layui-nav-item"><a href="">社区</a></li>
+        <li class="layui-nav-item"><a href="">管理</a></li>
+    </ul>
+    <script>layui.use('element',function(){var element = layui.element;});</script>
+</body>
+</html>
