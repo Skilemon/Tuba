@@ -25,6 +25,5 @@
     return $data;
     }
     ?>
-    
 </body>
 </html>
