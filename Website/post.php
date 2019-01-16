@@ -10,19 +10,15 @@
 <body>
     <?php
     $file = $imei = "";
-    
-    if ($_SERVER["REQUEST_METHOD"] == "POST")
-    {
-    $file = input($_POST["file"]);
-    $imei = input($_POST["imei"]);
+    if($_SERVER["REQUEST_METHOD"] == "POST"){
+        $file = input($_POST["file"]);
+        $imei = input($_POST["imei"]);
     }
-    
-    function input($data)
-    {
-    $data = trim($data);
-    $data = stripslashes($data);
-    $data = htmlspecialchars($data);
-    return $data;
+    function input($data){
+        $data = trim($data);
+        $data = stripslashes($data);
+        $data = htmlspecialchars($data);
+        return $data;
     }
     ?>
 </body>
