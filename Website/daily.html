@@ -24,26 +24,20 @@
             if (date < 10) {
                 date = "0" + date;
             }
-            document.getElementById("times").innerHTML = "日期：" + year + "年" + month + "月" + date + "日";
-        }
-        function FileExist() {
-            var fileURL1 = "files/" + year + month + date + ".jpg";
-            var fileURL2 = "files/" + year + month + date + ".png";
-            var xmlhttp1 = new ActiveXObject("Microsoft.XMLHTTP");
-            var xmlhttp2 = new ActiveXObject("Microsoft.XMLHTTP");
-            xmlhttp1.open("GET",FileURL,false);
-            xmlhttp2.open("GET",FileURL,false);
-            xmlhttp1.send();
-            xmlhttp2.send();
-            if (xmlhttp1.readyState==4,xmlhttp2.readyState==4) {
-                if (xmlhttp1.status==200) {
-                    document.getElementById("daily").src = fileURL1;
-                } else if (xmlhttp2.status==200){
-                    document.getElementById("daily").src = fileURL2;
-                } else {
-                    document.getElementById("daily").src = "images/404.gif";
-                }
-            }
+            document.getElementById("time").innerHTML = "日期：" + year + "年" + month + "月" + date + "日";
+            document.getElementById("daily").src = "files/" + year + month + date + ".png";
+            // png & jpg 智能识别模块
+            // var fileURL = "files/" + year + month + date;
+            // var xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+            // xmlhttp.open("GET",fileURL + ".jpg",false);
+            // xmlhttp.send(ture);
+            // if (xmlhttp.readyState==4) {
+            //     if (xmlhttp.status==200) {
+            //         document.getElementById("img").src = fileURL + ".jpg";
+            //     } else {
+            //         document.getElementById("img").src = fileURL + ".png";
+            //     }
+            // }
         }
     </script>
 </head>
@@ -64,15 +58,10 @@
             <div class="card mc tc sma cd">
                 <div class="card-body">
                     <h1 class="cover-heading">今日推荐</h1>
-                    <p id="times" class="lead"></p>
+                    <p id="time" class="lead"></p>
                     <img src="images/404.gif" id="daily" class="rounded img-fluid">
                 </div>
             </div>
-            <!-- <h1 class="cover-heading">Tuba API</h1>
-            <p class="lead">每日推荐优质好图，让你的桌面从此焕然一新，不再淡然无味！</p>
-            <p class="lead">
-                <a href="#" class="btn btn-lg btn-secondary">Come On</a>
-            </p> -->
         </main>
         <footer class="mastfoot mt-auto">
             <div class="inner">
