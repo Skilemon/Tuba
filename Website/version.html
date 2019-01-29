@@ -4,16 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Tuba API | History</title>
+    <title>Tuba API | Version</title>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="css/default-style.css">
-    <link rel="stylesheet" href="css/other-style.css">
     <link rel="stylesheet" href="css/bootstrap.css">
     <script src="js/jquery-3.3.1.js" charset="utf-8"></script>
     <script src="js/bootstrap.js" charset="utf-8"></script>
     <script src="js/popper.js" charset="utf-8"></script>
 </head>
-<body class="text-center">
+<body class="text-center" onload="time()">
     <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
         <header class="masthead mb-auto">
             <div class="inner">
@@ -21,7 +20,7 @@
                 <nav class="nav nav-masthead justify-content-center">
                     <a class="nav-link" href="index.html">首页</a>
                     <a class="nav-link" href="daily.html">日推</a>
-                    <a class="nav-link active" href="#">历史</a>
+                    <a class="nav-link" href="history.html">历史</a>
                     <a class="nav-link" href="#">社区</a>
                 </nav>
             </div>
@@ -29,13 +28,9 @@
         <main role="main" class="inner cover">
             <div class="card mc tc sma cd">
                 <div class="card-body">
-                    <h1 class="cover-heading">今日推荐</h1>
-                    <p id="time" class="lead"></p>
-                    <p class="lead" id="tips" style="font-size:16px;">Tips:稍安勿躁，图片加载完成需要等待3-5秒的时间哦~</p>
-                    <img src="images/404.gif" id="daily" class="rounded img-fluid">
-                    <div>
-                        <a class="btn btn-primary" target="_blank" id="btn" href="#">Download</a>
-                    </div>
+                    <h1 class="cover-heading">Version 0.1.5 beta</h1>
+                    <p style="font-size:16px;" class="lead">1.全新日推上线</p>
+                    <p style="font-size:16px;" class="lead">2.全网优质图源</p>
                 </div>
             </div>
         </main>

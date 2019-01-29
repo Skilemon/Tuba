@@ -4,9 +4,9 @@
 .mc {
     margin: 0 auto;
 }
-.sma {
-    background: rgba(255, 255, 255, .5)!important;
-}
 .cd {
     margin: 10px 10px 0 10px;
+}
+div a {
+    margin-top:20px;
 }

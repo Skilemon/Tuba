@@ -7,7 +7,7 @@
     <title>Tuba API | Daily</title>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="css/default-style.css">
-    <link rel="stylesheet" href="css/daily-style.css">
+    <link rel="stylesheet" href="css/other-style.css">
     <link rel="stylesheet" href="css/bootstrap.css">
     <script src="js/jquery-3.3.1.js" charset="utf-8"></script>
     <script src="js/bootstrap.js" charset="utf-8"></script>
@@ -18,15 +18,23 @@
             var year = now.getFullYear();
             var month = now.getMonth();
             var date = now.getDate();
-            if ((month+1) < 10) {
+            if (month+1 < 10) {
                 month = "0" + (month+1);
             }
             if (date < 10) {
                 date = "0" + date;
             }
+            var file = "files/" + year + month + date + ".jpg";
             document.getElementById("time").innerHTML = "日期：" + year + "年" + month + "月" + date + "日";
-            document.getElementById("daily").src = "files/" + year + month + date + ".jpg";
-            // png & jpg 智能识别模块
+            if (year+month+date < "20190128") {
+                document.getElementById("tips").innerHTML = "Tips:小编偷懒了，今天没有日推哦~";
+                document.getElementById("btn").className = "btn btn-primary disabled";
+            } else {
+                document.getElementById("daily").src = file;
+                document.getElementById("btn").href = file;
+            }
+        }
+            // png & jpg & NotPicture 智能识别模块
             // var fileURL = "files/" + year + month + date;
             // var xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
             // xmlhttp.open("GET",fileURL + ".jpg",false);
@@ -38,7 +46,6 @@
             //         document.getElementById("img").src = fileURL + ".png";
             //     }
             // }
-        }
     </script>
 </head>
 <body class="text-center" onload="time()">
@@ -59,8 +66,11 @@
                 <div class="card-body">
                     <h1 class="cover-heading">今日推荐</h1>
                     <p id="time" class="lead"></p>
-                    <p class="lead" style="font-size:16px;">Tips:稍安勿躁，图片加载完成需要等待3-5秒的时间哦~</p>
+                    <p class="lead" id="tips" style="font-size:16px;">Tips:稍安勿躁，图片加载完成需要等待3-5秒的时间哦~</p>
                     <img src="images/404.gif" id="daily" class="rounded img-fluid">
+                    <div>
+                        <a class="btn btn-primary" target="_blank" id="btn" href="#">Download</a>
+                    </div>
                 </div>
             </div>
         </main>
