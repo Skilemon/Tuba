@@ -12,8 +12,32 @@
     <script src="js/jquery-3.3.1.js" charset="utf-8"></script>
     <script src="js/bootstrap.js" charset="utf-8"></script>
     <script src="js/popper.js" charset="utf-8"></script>
+    <script>
+        function time() {
+            var now = new Date();
+            var now = new Date(now.getTime()-24*60*60*1000);
+            var year = now.getFullYear();
+            var month = now.getMonth();
+            var date = now.getDate();
+            if (month+1 < 10) {
+                month = "0" + (month+1);
+            }
+            if (date < 10) {
+                date = "0" + date;
+            }
+            var file = "files/" + year + month + date + ".jpg";
+            document.getElementById("time").innerHTML = "日期：" + year + "年" + month + "月" + date + "日";
+            if (year+month+date < "20190128") {
+                document.getElementById("tips").innerHTML = "Tips:小编偷懒了，今天没有日推哦~";
+                document.getElementById("down").className = "btn btn-primary disabled";
+            } else {
+                document.getElementById("daily").src = file;
+                document.getElementById("down").href = file;
+            }
+        }
+    </script>
 </head>
-<body class="text-center">
+<body class="text-center" onload="time()">
     <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
         <header class="masthead mb-auto">
             <div class="inner">
@@ -22,6 +46,7 @@
                     <a class="nav-link" href="index.html">首页</a>
                     <a class="nav-link" href="daily.html">日推</a>
                     <a class="nav-link active" href="#">历史</a>
+                    <a class="nav-link" href="version.html">版本</a>
                     <a class="nav-link" href="#">社区</a>
                 </nav>
             </div>
@@ -34,7 +59,9 @@
                     <p class="lead" id="tips" style="font-size:16px;">Tips:稍安勿躁，图片加载完成需要等待3-5秒的时间哦~</p>
                     <img src="images/404.gif" id="daily" class="rounded img-fluid">
                     <div>
-                        <a class="btn btn-primary" target="_blank" id="btn" href="#">Download</a>
+                        <a class="btn btn-primary" target="_blank" id="last" href="#">←Last</a>
+                        <a class="btn btn-primary" target="_blank" id="down" href="#">View</a>
+                        <a class="btn btn-primary" target="_blank" id="next" href="#">Next→</a>
                     </div>
                 </div>
             </div>

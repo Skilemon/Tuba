@@ -1,6 +1,6 @@
 # Tuba
 一个每日推荐优质图片的程序
-# Website
+# Website Preview
 <img src="" title="">
-# Android
+# Android Preview
 <img src="" title="">

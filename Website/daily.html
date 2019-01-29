@@ -28,10 +28,10 @@
             document.getElementById("time").innerHTML = "日期：" + year + "年" + month + "月" + date + "日";
             if (year+month+date < "20190128") {
                 document.getElementById("tips").innerHTML = "Tips:小编偷懒了，今天没有日推哦~";
-                document.getElementById("btn").className = "btn btn-primary disabled";
+                document.getElementById("down").className = "btn btn-primary disabled";
             } else {
                 document.getElementById("daily").src = file;
-                document.getElementById("btn").href = file;
+                document.getElementById("down").href = file;
             }
         }
             // png & jpg & NotPicture 智能识别模块
@@ -57,6 +57,7 @@
                     <a class="nav-link" href="index.html">首页</a>
                     <a class="nav-link active" href="#">日推</a>
                     <a class="nav-link" href="history.html">历史</a>
+                    <a class="nav-link" href="version.html">版本</a>
                     <a class="nav-link" href="#">社区</a>
                 </nav>
             </div>
@@ -69,7 +70,7 @@
                     <p class="lead" id="tips" style="font-size:16px;">Tips:稍安勿躁，图片加载完成需要等待3-5秒的时间哦~</p>
                     <img src="images/404.gif" id="daily" class="rounded img-fluid">
                     <div>
-                        <a class="btn btn-primary" target="_blank" id="btn" href="#">Download</a>
+                        <a class="btn btn-primary" target="_blank" id="down" href="#">View</a>
                     </div>
                 </div>
             </div>

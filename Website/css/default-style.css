@@ -30,8 +30,9 @@ body {
     display: -ms-flexbox;
     display: flex;
     color: white;
-    text-shadow: 0 0.05rem 0.1rem rgba(0,0,0,0.5);
-    box-shadow: inset 0 0 5rem rgba(0,0,0,0.5);
+    text-shadow: 0 .05rem .1rem rgba(0, 0, 0, .5);
+    /* box-shadow: inset 0 0 5rem rgba(0, 0, 0, .5); */
+    /* Shield shadow mask,vertical wallpaper bug has not been fixed yet. */
 }
 .cover-container {
     max-width: 42em;

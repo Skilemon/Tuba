@@ -13,3 +13,7 @@ div a {
 .sma {
     background: rgba(255, 255, 255, .5)!important;
 }
+div a#down {
+    margin-left: 3px;
+    margin-right: 3px;
+}
