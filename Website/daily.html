@@ -18,23 +18,28 @@
             var year = now.getFullYear();
             var month = now.getMonth();
             var date = now.getDate();
+            // Get now day
             if (month+1 < 10) {
                 month = "0" + (month+1);
             }
             if (date < 10) {
                 date = "0" + date;
             }
+            // Fix date
             var file = "files/" + year + month + date + ".jpg";
+            // Lock file local
             document.getElementById("time").innerHTML = "日期：" + year + "年" + month + "月" + date + "日";
-            if (year+month+date < "20190128") {
+            // Write old day date
+            if ((year+month+date) < "20190128") {
                 document.getElementById("tips").innerHTML = "Tips:小编偷懒了，今天没有日推哦~";
                 document.getElementById("down").className = "btn btn-primary disabled";
             } else {
                 document.getElementById("daily").src = file;
                 document.getElementById("down").href = file;
             }
+            // Write infomation form website
         }
-            // png & jpg & NotPicture 智能识别模块
+            // png & jpg & NotPicture 智能识别模块(弃用中)
             // var fileURL = "files/" + year + month + date;
             // var xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
             // xmlhttp.open("GET",fileURL + ".jpg",false);
