@@ -13,17 +13,30 @@
     <script src="js/bootstrap.js" charset="utf-8"></script>
     <script src="js/popper.js" charset="utf-8"></script>
     <script>
+        var now = new Date();
+        var year = now.getFullYear();
+        var month = now.getMonth();
+        var date = now.getDate();
+        // Get now day
+        if (month+1 < 10) {
+            month = "0" + (month+1);
+        }
+        if (date < 10) {
+            date = "0" + date;
+        }
+        var ny = year + month + date;
+        // Fix now day
+        var onow = new Date(now.getTime()-24*60*60*1000);
+        var oyear = onow.getFullYear();
+        var omonth = onow.getMonth();
+        var odate = onow.getDate();
+        // Get old day
+        var disbtn = "btn btn-primary disabled";
+        var stbtn = "btn btn-primary";
+        // Lock button
+        var tc = "Tips:小编偷懒了，今天没有日推哦~";
+        // Tips content
         function time() {
-            var now = new Date();
-            var year = now.getFullYear();
-            var month = now.getMonth();
-            var date = now.getDate();
-            // Get now day
-            var onow = new Date(now.getTime()-24*60*60*1000);
-            var oyear = onow.getFullYear();
-            var omonth = onow.getMonth();
-            var odate = onow.getDate();
-            // Get old day
             if (omonth+1 < 10) {
                 omonth = "0" + (omonth+1);
             }
@@ -35,19 +48,17 @@
             // Local time
             var file = "files/" + nt + ".jpg";
             // Lock file local
-            document.getElementById("time").innerHTML = "日期：" + oyear + "年" + omonth + "月" + odate + "日";
-            // Write old day date
-            var disbtn = "btn btn-primary disabled";
-            // Lock button
             var down = document.getElementById("down");
             var last = document.getElementById("last");
             // Local id
+            document.getElementById("time").innerHTML = "日期：" + oyear + "年" + omonth + "月" + odate + "日";
+            // Write old day date
             if (nt == "20190128") {
                 down.src = file;
                 last.className = disbtn;
                 down.href = file;
             } else if (nt < "20190128") {
-                document.getElementById("tips").innerHTML = "Tips:小编偷懒了，今天没有日推哦~";
+                document.getElementById("tips").innerHTML = tc;
                 down.className = disbtn;
                 last.className = disbtn;
             } else {
@@ -55,6 +66,77 @@
                 down.href = file;
             }
             // Write infomation form website
+        }
+        function last() {
+            onow = new Date(onow.getTime()-24*60*60*1000);
+            oyear = onow.getFullYear();
+            omonth = onow.getMonth();
+            odate = onow.getDate();
+            // Get previous day
+            if (omonth+1 < 10) {
+                omonth = "0" + (omonth+1);
+            }
+            if (odate < 10) {
+                odate = "0" + odate;
+            }
+            // Fix date
+            var nt = oyear + omonth + odate;
+            // Local time
+            var file = "files/" + nt + ".jpg";
+            // Lock file local
+            var down = document.getElementById("down");
+            var last = document.getElementById("last");
+            var daily = document.getElementById("daily");
+            // Local id
+            document.getElementById("time").innerHTML = "日期：" + oyear + "年" + omonth + "月" + odate + "日";
+            // Write old day date
+            if (nt == "20190128") {
+                daily.src = file;
+                last.className = disbtn;
+                down.href = file;
+            } else if (nt < "20190128") {
+                daily.src = "images/404.gif";
+                document.getElementById("tips").innerHTML = tc;
+                down.className = disbtn;
+                last.className = disbtn;
+            } else {
+                daily.src = file;
+                down.href = file;
+                down.className = stbtn;
+                document.getElementById("next").className = stbtn;
+            }
+        }
+        function next() {
+            onow = new Date(onow.getTime()+24*60*60*1000);
+            oyear = onow.getFullYear();
+            omonth = onow.getMonth();
+            odate = onow.getDate();
+            // Get next day
+            if (omonth+1 < 10) {
+                omonth = "0" + (omonth+1);
+            }
+            if (odate < 10) {
+                odate = "0" + odate;
+            }
+            // Fix date
+            var nt = oyear + omonth + odate;
+            // Local time
+            var file = "files/" + nt + ".jpg";
+            // Lock file local
+            var down = document.getElementById("down");
+            var daily = document.getElementById("daily");
+            // Local id
+            document.getElementById("time").innerHTML = "日期：" + oyear + "年" + omonth + "月" + odate + "日";
+            // Write old day date
+            if (nt == ny) {
+                document.getElementById("next").className = disbtn;
+                daily.src = file;
+                down.href = file;
+            } else {
+                daily.src = file;
+                down.href = file;
+                document.getElementById("last").className = stbtn;
+            }
         }
     </script>
 </head>
@@ -80,9 +162,9 @@
                     <p class="lead" id="tips" style="font-size:16px;">Tips:稍安勿躁，图片加载完成需要等待3-5秒的时间哦~</p>
                     <img src="images/404.gif" id="daily" class="rounded img-fluid">
                     <div>
-                        <a class="btn btn-primary" target="_blank" id="last" href="#">←Last</a>
+                        <a class="btn btn-primary" id="last" onclick="last()" href="#last">←Last</a>
                         <a class="btn btn-primary" target="_blank" id="down" href="#">View</a>
-                        <a class="btn btn-primary" target="_blank" id="next" href="#">Next→</a>
+                        <a class="btn btn-primary" id="next" onclick="next()" href="#next">Next→</a>
                     </div>
                 </div>
             </div>
