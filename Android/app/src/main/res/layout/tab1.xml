@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content" android:layout_height="wrap_content"
-    android:id="@+id/GridLayout01"
-    android:orientation="horizontal"
-    android:columnCount="3">
-    <GridView
-        android:numColumns="2"
-        android:id="@+id/GridView">
-    </GridView>
-</GridLayout>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/RelativeLayout1"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+    <ImageView
+        android:layout_centerInParent="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/c20190126174556"/>
+</RelativeLayout>
