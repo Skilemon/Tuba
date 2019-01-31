@@ -15,6 +15,7 @@
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@android:id/tabcontent"></FrameLayout>
+            android:id="@android:id/tabcontent">
+        </FrameLayout>
     </LinearLayout>
 </TabHost>
