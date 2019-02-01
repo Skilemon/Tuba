@@ -6,5 +6,14 @@
         android:layout_centerInParent="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:src="@drawable/c20190126174556"/>
+        android:src="@drawable/a20190126174516"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="View"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:textSize="20sp"
+        android:textColor="#000000"
+        android:background="@drawable/tab1_shape"/>
 </RelativeLayout>
