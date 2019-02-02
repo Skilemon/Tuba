@@ -35,7 +35,8 @@
         var stbtn = "btn btn-primary";
         // Lock button
         var tc = "Tips:小编偷懒了，今天没有日推哦~";
-        // Tips content
+        var loading = "images/404.gif";
+        // Local content
         function time() {
             if (omonth+1 < 10) {
                 omonth = "0" + (omonth+1);
@@ -50,11 +51,12 @@
             // Lock file local
             var down = document.getElementById("down");
             var last = document.getElementById("last");
+            var daily = document.getElementById("daily");
             // Local id
             document.getElementById("time").innerHTML = "日期：" + oyear + "年" + omonth + "月" + odate + "日";
             // Write old day date
             if (nt == "20190128") {
-                down.src = file;
+                daily.src = file;
                 last.className = disbtn;
                 down.href = file;
             } else if (nt < "20190128") {
@@ -62,7 +64,7 @@
                 down.className = disbtn;
                 last.className = disbtn;
             } else {
-                document.getElementById("daily").src = file;
+                daily.src = file;
                 down.href = file;
             }
             // Write infomation form website
@@ -91,6 +93,7 @@
             document.getElementById("time").innerHTML = "日期：" + oyear + "年" + omonth + "月" + odate + "日";
             // Write old day date
             if (nt == "20190128") {
+                daily.src = loading;
                 daily.src = file;
                 last.className = disbtn;
                 down.href = file;
@@ -100,6 +103,7 @@
                 down.className = disbtn;
                 last.className = disbtn;
             } else {
+                daily.src = loading;
                 daily.src = file;
                 down.href = file;
                 down.className = stbtn;
@@ -129,10 +133,12 @@
             document.getElementById("time").innerHTML = "日期：" + oyear + "年" + omonth + "月" + odate + "日";
             // Write old day date
             if (nt == ny) {
+                daily.src = loading;
                 document.getElementById("next").className = disbtn;
                 daily.src = file;
                 down.href = file;
             } else {
+                daily.src = loading;
                 daily.src = file;
                 down.href = file;
                 document.getElementById("last").className = stbtn;
