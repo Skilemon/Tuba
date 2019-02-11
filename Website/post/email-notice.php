@@ -21,6 +21,8 @@
     $headers = "From:" . $from;         // 头部信息设置
     mail($to,$subject,$message,$headers);
     echo "success";
+
+    get_browser("http://api.guaqb.cn/music/yxkey.php?key=132ecf32a7381d777ee6&my=0cba23cef567a3c17363&email=chenjunyu.qaz@qq.com&bt=Tuba API&nr=Hello! 这是邮件的内容。test");
     ?>
 </body>
 </html>
