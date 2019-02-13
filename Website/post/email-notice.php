@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
+    <meta charset="GBK">
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Tuab API | Email Notice</title>
@@ -9,20 +9,21 @@
 </head>
 <body>
     <?php
-    $days = date("Y-m-d");
-    $times = date("Ymd");
-    $files = $times + ".jpg";
-
-    echo date("Ymd");
-    $to = "chenjunyu.qaz@qq.com";         // 邮件接收者
-    $subject = "Tuba API";                // 邮件标题
-    $message = "Hello! 这是邮件的内容。test";  // 邮件正文
-    $from = "gm@echocode.club";   // 邮件发送者
-    $headers = "From:" . $from;         // 头部信息设置
-    mail($to,$subject,$message,$headers);
-    echo "success";
-
-    get_browser("http://api.guaqb.cn/music/yxkey.php?key=132ecf32a7381d777ee6&my=0cba23cef567a3c17363&email=chenjunyu.qaz@qq.com&bt=Tuba API&nr=Hello! 这是邮件的内容。test");
+    //echo date("Y年m月d日");
+    $nd = date("要检测的文件 Ymd",strtotime("+1 day"));
+  	//echo "<br>".$nd.".jpg";
+    $to = $_GET["to"];
+    $title = $_GET["title"];
+    $content = $_GET["content"];
+    $url = "http://api.guaqb.cn/music/yxkey.php?key=132ecf32a7381d777ee6&my=0cba23cef567a3c17363&email=".$to."&bt=".$title."&nr=".$content;
+    //echo "<br>当前Get提交接口数据地址 ".$url;
+	$ch = curl_init();
+	curl_setopt($ch,CURLOPT_URL,$url);
+	curl_setopt($ch,CURLOPT_RETURNTRANSFER,1);
+	curl_setopt($ch,CURLOPT_CONNECTTIMEOUT,10);
+	$html = curl_exec($ch);
+    echo "<br>".$html;
+    //http://api.echocode.club/test.php?to=&title=&content=
     ?>
 </body>
 </html>
