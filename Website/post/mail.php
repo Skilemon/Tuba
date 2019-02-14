@@ -12,8 +12,8 @@
     echo "Console log list ---><br>";
     $nd = date("Ymd",strtotime("+1 day"));
     $to = "chenjunyu.qaz@qq.com";
-    $title = "Tuba%20API%20AI客服";
-    $content = "Console log list%0D%0A".date("当前时间%20Y年m月d日%20H:i")."%0D%0A请尽快上传".$nd.".jpg%0D%0A%0D%0A————消息来自Tuba%20API";
+    $title = "Tuba_API_AI_Service";
+    $content = "Please_you_upload_to".$nd.".jpg";
     $url = "http://api.guaqb.cn/music/yxkey.php?key=132ecf32a7381d777ee6&my=0cba23cef567a3c17363&email=".$to."&bt=".$title."&nr=".$content;
     /*
     if($to == "")
@@ -33,8 +33,8 @@
     */
     if(date(Hi) > "2200")
     {
-        echo date("当前时间 Y年m月d日 H:i --->");
-        echo "<br>要检测的文件 ".$nd.".jpg --->";
+        echo "Now time ".date("Y/m/d/ H:i --->")."";
+        echo "<br>Search to file is \"".$nd.".jpg\" --->";
         $ch = curl_init();
 	    curl_setopt($ch,CURLOPT_URL,"http://api.echocode.club/API/Tuba/files/".$nd.".jpg");
 	    curl_setopt($ch,CURLOPT_RETURNTRANSFER,1);
@@ -42,15 +42,15 @@
         $html = curl_exec($ch);
         if($html == "404")
         {
-            $ch = curl_init();
+            //$ch = curl_init();
 	        curl_setopt($ch,CURLOPT_URL,$url);
 	        curl_setopt($ch,CURLOPT_RETURNTRANSFER,1);
             curl_setopt($ch,CURLOPT_CONNECTTIMEOUT,10);
-            echo "<br>验证失败 ---><br>正在执行命令 ---><br>";
+            echo "<br>Auth error ---><br>Executing command --->";
             $html = curl_exec($ch);
-            if($html == "发送成功！")
+            if(substr_count($html,"成功") >= "1")
             {
-                echo "<br>命令已执行";
+                echo "<br>Command executed";
             }
             else
             {
@@ -59,12 +59,12 @@
         }
         else
         {
-            echo "Auth";
+            echo "<br>Auth";
         }
     }
     else
     {
-        echo "Error 605";
+        echo "<br>Error 605";
     }
     //echo "<br>当前Get提交接口数据地址 ".$url;
     //http://api.echocode.club/test.php?to=
