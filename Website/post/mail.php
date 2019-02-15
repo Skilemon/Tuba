@@ -29,7 +29,7 @@
     }
     else
     {
-        if(date(Hi) > "2200")
+        if(date(Hi) > "2000")
         {
             echo "Now time ".date("Y/m/d/ H:i --->")."";
             echo "<br>Search to file is \"".$nd.".jpg\" --->";
