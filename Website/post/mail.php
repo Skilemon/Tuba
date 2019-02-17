@@ -29,7 +29,7 @@
     }
     else
     {
-        if(date(Hi) > "2000")
+        if(date(Hi) > "1900")
         {
             echo "Now time ".date("Y/m/d/ H:i --->")."";
             echo "<br>Search to file is \"".$nd.".jpg\" --->";
@@ -57,6 +57,7 @@
             }
             else
             {
+                curl_close($ch);
                 echo "<br>Auth";
             }
         }
@@ -66,12 +67,10 @@
         }
     }
     /*
-    echo "<br>当前Get提交接口数据地址 ".$url;
+    echo "<br>当前Get的地址是".$url;
     http://api.echocode.club/API/Tuba/post/mail.php?to=chenjunyu.qaz@qq.com
-    空格 = %20
-    回车 = %0D%0A
     $to = $_GET["to"];
-    601-603参数错误 604命令执行错误(47行末开启debug[.$html]) 605时间错误
+    601-603参数错误 604命令错误(47行开启debug[.$html]) 605时间错误
     */
     ?>
 </body>
