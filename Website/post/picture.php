@@ -27,17 +27,17 @@
         $html = curl_exec($ch);
         if ($html == "404")
         {
-            echo "msg:1000,url:}";
+            echo "\"msg\":\"1000\"<br>\"url\":\"\"";
         }
         else
         {
-            echo "{msg:1001,url:".$tfile."}";
+            echo "\"msg\":\"1001\"<br>\"url\":\"".$tfile."\"";
         }
     }
     else
     {
         curl_close($ch);
-        echo "{msg:1001,url:".$ofile."}";
+        echo "\"msg\":\"1001\"<br>\"url\":\"".$ofile."\"";
     }
     /*
     $EchoCodeTubaAPI = 4501afb82a5e3e869162f44108e62c4e; //key

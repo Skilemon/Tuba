@@ -58,7 +58,7 @@
             else
             {
                 curl_close($ch);
-                echo "<br>Auth";
+                echo "<br>Successful verification";
             }
         }
         else
