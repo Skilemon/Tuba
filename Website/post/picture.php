@@ -1,7 +1,7 @@
 <?php
 class Emp {
     public $msg = "";
-    public $url  = "";
+    public $url = "";
 }
 $e = new Emp();
 //$key = $_GET["key"];

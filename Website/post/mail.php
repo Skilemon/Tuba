@@ -1,77 +1,66 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="GBK">
-    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Tuab API | Mail Notice</title>
-    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
-</head>
-<body>
-    <?php
-    echo "Console log list ---><br>";
-    $nd = date("Ymd",strtotime("+1 day"));
-    $to = $_GET["to"];
-    $title = "Tuba_API&main=EchoCodeAI";
-    $content = "Not_Found_".$nd.".jpg";
-    $url = "http://api.guaqb.cn/music/yxkey.php?key=132ecf32a7381d777ee6&my=0cba23cef567a3c17363&email=".$to."&bt=".$title."&nr=".$content;
-    if($to == "")
+<?php
+class Emp {
+    public $msg = "";
+}
+$e = new Emp();
+$nd = date("Ymd",strtotime("+1 day"));
+$to = $_GET["to"];
+$title = "Tuba_API&main=EchoCodeAI";
+$content = "Not_Found_".$nd.".jpg";
+$url = "http://api.guaqb.cn/music/yxkey.php?key=132ecf32a7381d777ee6&my=0cba23cef567a3c17363&email=".$to."&bt=".$title."&nr=".$content;
+if($to == "")
+{
+    $e->msg = "601";
+}
+else if($title == "")
+{
+    $e->msg = "602";
+}
+else if($content == "")
+{
+    $e->msg = "603";
+}
+else
+{
+    if(date(Hi) > "1900")
     {
-        echo "Error 601";
-    }
-    else if($title == "")
-    {
-        echo "Error 602";
-    }
-    else if($content == "")
-    {
-        echo "Error 603";
-    }
-    else
-    {
-        if(date(Hi) > "1900")
+        $ch = curl_init();
+        curl_setopt($ch,CURLOPT_URL,"http://api.echocode.club/API/Tuba/files/".$nd.".jpg");
+        curl_setopt($ch,CURLOPT_RETURNTRANSFER,1);
+        curl_setopt($ch,CURLOPT_CONNECTTIMEOUT,10);
+        $html = curl_exec($ch);
+        if($html == "404")
         {
-            echo "Now time ".date("Y/m/d/ H:i --->")."";
-            echo "<br>Search to file is \"".$nd.".jpg\" --->";
-            $ch = curl_init();
-            curl_setopt($ch,CURLOPT_URL,"http://api.echocode.club/API/Tuba/files/".$nd.".jpg");
+            curl_setopt($ch,CURLOPT_URL,$url);
             curl_setopt($ch,CURLOPT_RETURNTRANSFER,1);
             curl_setopt($ch,CURLOPT_CONNECTTIMEOUT,10);
             $html = curl_exec($ch);
-            if($html == "404")
+            curl_close($ch);
+            if(substr_count($html,"æˆåŠŸ") >= "1")
             {
-                curl_setopt($ch,CURLOPT_URL,$url);
-                curl_setopt($ch,CURLOPT_RETURNTRANSFER,1);
-                curl_setopt($ch,CURLOPT_CONNECTTIMEOUT,10);
-                $html = curl_exec($ch);
-                echo "<br>Auth error ---><br>Executing command --->"/*.$html*/;
-                curl_close($ch);
-                if(substr_count($html,"³É¹¦") >= "1")
-                {
-                    echo "<br>Command executed";
-                }
-                else
-                {
-                    echo "<br>Error 604";
-                }
+                $e->msg = "604";
             }
             else
             {
-                curl_close($ch);
-                echo "<br>Successful verification";
+                $e->msg = "605";
             }
         }
         else
         {
-            echo "Error 605";
+            curl_close($ch);
+            $e->msg = "607";
         }
     }
-    /*
-    echo "<br>µ±Ç°GetµÄµØÖ·ÊÇ".$url;
-    http://api.echocode.club/API/Tuba/post/mail.php?to=chenjunyu.qaz@qq.com
-    $to = $_GET["to"];
-    601-603²ÎÊý´íÎó 604ÃüÁî´íÎó(47ÐÐ¿ªÆôdebug[.$html]) 605Ê±¼ä´íÎó
-    */
-    ?>
-</body>
-</html>
+    else
+    {
+       $e->msg = "606";
+    }
+}
+echo json_encode($e);
+/*
+echo "<br>å½“å‰Getçš„åœ°å€æ˜¯".$url;
+http://api.echocode.club/API/Tuba/post/mail.php?to=chenjunyu.qaz@qq.com
+$to = $_GET["to"];
+601-603å‚æ•°é”™è¯¯ 604å‘é€æˆåŠŸ 605å‘é€å¤±è´¥(47è¡Œå¼€å¯debug[.$html]) 606æ—¶é—´é”™è¯¯ 607æ— éœ€é€šçŸ¥
+*/
+?>
