@@ -9,6 +9,11 @@
 </head>
 <body>
     <?php
+    class Emp {
+        public $msg = "";
+        public $url  = "";
+    }
+    $e = new Emp();
     //$key = $_GET["key"];
     $date = date("Ymd");
     $purl = "http://api.echocode.club/API/Tuba/files/";
@@ -27,17 +32,20 @@
         $html = curl_exec($ch);
         if ($html == "404")
         {
-            echo "\"msg\":\"1000\"<br>\"url\":\"\"";
+            $e->msg = "1000";
+            $e->url = "";
         }
         else
         {
-            echo "\"msg\":\"1001\"<br>\"url\":\"".$tfile."\"";
+            $e->msg = "1001";
+            $e->url = $tfile;
         }
     }
     else
     {
         curl_close($ch);
-        echo "\"msg\":\"1001\"<br>\"url\":\"".$ofile."\"";
+        $e->msg = "1001";
+        $e->url = $ofile;
     }
     /*
     $EchoCodeTubaAPI = 4501afb82a5e3e869162f44108e62c4e; //key
