@@ -4,7 +4,7 @@ class Emp {
     public $url = "";
 }
 $e = new Emp();
-//$key = $_GET["key"];
+//$key = $_POST["key"];
 $date = date("Ymd");
 $purl = "http://api.echocode.club/API/Tuba/files/";
 $ofile = $purl.$date.".jpg";
@@ -33,10 +33,10 @@ if ($html == "404")
 }
 else
 {
-    curl_close($ch);
     $e->msg = "1001";
     $e->url = $ofile;
 }
+curl_close($ch);
 echo json_encode($e);
 /*
 $EchoCodeTubaAPI = 4501afb82a5e3e869162f44108e62c4e; //key
