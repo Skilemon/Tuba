@@ -4,10 +4,10 @@ class Emp {
 }
 $e = new Emp();
 $nd = date("Ymd",strtotime("+1 day"));
-//$to = $_POST["to"];
-$to = "chenjunyu.qaz@qq.com";
-$title = "Tuba API&main=EchoCode AI客服";
-$content = "请尽快上传".$nd.".jpg";
+$to = $_GET["to"];
+//$to = "chenjunyu.qaz@qq.com";
+$title = "TubaAPI&main=EchoCode";
+$content = "Upload".$nd.".jpg";
 $url = "http://api.guaqb.cn/music/yxkey.php?key=132ecf32a7381d777ee6&my=0cba23cef567a3c17363&email=".$to."&bt=".$title."&nr=".$content;
 if($to == "")
 {
